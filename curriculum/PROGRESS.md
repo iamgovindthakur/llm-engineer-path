@@ -7,8 +7,21 @@ question was attempted, the shapes can be stated from memory, the interview
 hooks were attempted, and `NOTES.md` exists in the lesson directory written by
 the learner — not by Claude.
 
-**Current position:** Phase 0 taught through 00.4 (00.5-00.8 deliberately skipped). Next lesson is **01.3 (broadcasting rules)**, the first Phase 1 shape lesson.
-**Agreed path (trimmed):** 00.4 → Phase 1 shape lessons only (01.3 broadcasting, 01.4 bug drill, 01.5 reshape vs view, 01.6 batched matmul, 01.7 einsum, 01.8 reductions) → resume `02_attention/` (the paused `sqrt(d_k)` lesson) → multi-head attention. Autograd/backprop later, before building a GPT. Skip Phase 0 lessons 00.5-00.8 for now.
+**Current position:** Phase 0 taught through 00.4. Next lesson is **00.5 (transpose)** — see the prerequisite audit below for why it is no longer skipped.
+**Agreed path (revised 2026-09-20 after a prerequisite audit):**
+`00.5` transpose → `01.2` indexing/slicing → `01.3` broadcasting → `01.4` bug drill →
+`01.5` reshape vs view → `01.6` batched matmul → `01.7` einsum → `01.8` reductions →
+**`00.9` mean/variance/sqrt(n)** → resume `02_attention/` (the paused `sqrt(d_k)` lesson)
+→ multi-head attention. Autograd/backprop later, before building a GPT.
+Still skipped: `00.6`, `00.7` (calculus — they return with backprop) and `00.8` (floats).
+
+### Prerequisite audit — why three lessons were added back
+
+| Lesson | Was | Why it had to come back |
+| --- | --- | --- |
+| **00.5** transpose | skipped | Its stated question is literally *"why does attention compute `Q @ K^T`?"* — the lesson we are paused on. It also owns the `(4,8) @ (8,4) -> (4,4)` score matrix, and its note that transpose returns a **view with permuted strides** is the stated prerequisite for `01.5` (reshape vs view), which was already on the path. Doing `01.5` without it was backwards. |
+| **00.9** mean/variance | did not exist | `03.2` lists *"variance of a sum of independent variables"* as a prerequisite; so do `03.15` (RMSNorm) and `01.20` (initialization). Nothing in the curriculum taught it. Written 2026-09-20. |
+| **01.2** indexing/slicing | not in the trimmed list | Teaches view-vs-copy, which `01.5` assumes. Its predict-first is last-timestep logits from `(B,T,V)` — the exact indexing the Phase 5 generation loop needs. |
 
 ---
 
@@ -43,8 +56,9 @@ LLM-infra roles (see `ROADMAP.md`). Study scope for that window: **Phases 0-5 +
 the serving-lane efficiency block, shipping P1, P2, P3, P5.** Phases 8-11 are
 months 7-11.
 
-1. **01.3 Broadcasting rules** — first Phase 1 shape lesson.
-2. Then 01.4 bug drill, 01.5 reshape vs view, 01.6 batched matmul, 01.7 einsum, 01.8 reductions.
+1. **00.5 Transpose** — unblocks both `Q @ K^T` and `01.5`.
+2. Then 01.2 indexing, 01.3 broadcasting, 01.4 bug drill, 01.5 reshape vs view, 01.6 batched matmul, 01.7 einsum, 01.8 reductions.
+3. **00.9 Mean/variance/sqrt(n)** immediately before resuming attention, so it is fresh for `03.2`.
 3. Resume `02_attention/`, finish `NOTES.md` and interview hooks.
 4. Multi-head attention (Phase 3).
 5. Phase 1 remainder: autograd/backprop/training loop -> **P1**.

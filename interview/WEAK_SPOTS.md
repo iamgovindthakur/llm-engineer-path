@@ -29,3 +29,11 @@ Notes on *how* things are being forgotten, which is more useful than the list
 itself. Filled in by `/recap` once there is enough history.
 
 _(nothing yet — needs a few recap sessions)_
+
+## Added 2026-09-20 (prerequisite audit)
+
+| Topic | Status | First flagged | Last tested | Note |
+| --- | --- | --- | --- | --- |
+| Variance of a sum of independent variables | gone | 2026-09-20 | — | Never taught anywhere; required by 03.2, 03.15, 01.20. New lesson 00.9 written to cover it. |
+| Transpose as a view with permuted strides | gone | 2026-09-20 | — | 00.5 was skipped; it is the prerequisite for both `Q @ K^T` and 01.5 contiguity. Un-skipped. |
+| View vs copy in indexing | gone | 2026-09-20 | — | 01.2 was not in the trimmed list; 01.5 assumes it. Added back. |

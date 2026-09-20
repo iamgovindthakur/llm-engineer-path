@@ -82,7 +82,7 @@ Your lane is serving and infra (`POSITIONING.md` §3), so:
 
 | Step | Content | Weeks | Output |
 | ---: | --- | ---: | --- |
-| 1 | Phase 0-1 trimmed: 00.3, broadcasting, reshape/view, matmul, einsum, reductions | 3-4 | — |
+| 1 | Phase 0-1 trimmed: 00.5 transpose, 01.2 indexing, 01.3-01.8 shapes, then 00.9 mean/variance | 3-4 | — |
 | 2 | Resume `02_attention/`; multi-head attention, RoPE, norms, the block (Phase 3) | 4-5 | Drills 3-6 |
 | 3 | Phase 1 remainder: autograd, backprop, cross-entropy, training loop, optimizers | 3-4 | **P1 micrograd-tensor** |
 | 4 | Phase 2 tokenization — **timeboxed to 2 weeks**, do not perfect it | 2 | **P2 bpe-lab** (a weekend) |

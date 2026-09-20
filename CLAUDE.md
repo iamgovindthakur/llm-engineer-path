@@ -168,6 +168,7 @@ Invoke with a slash command. Each one is defined in `.claude/skills/`.
 | `/lab` | Build one small from-scratch experiment, shapes first |
 | `/quiz` | Interview-style drilling; no answers until I try |
 | `/check` | Review code *I* wrote — find my bug, do not rewrite it |
+| `/drill` | Timed from-scratch implementation drill, shapes before code |
 | `/sysdesign` | Staff-level LLM system-design drill with a rubric |
 | `/recap` | Spaced-repetition review of older topics |
 | `/progress` | Update the tracker and show what is next |

@@ -232,6 +232,38 @@ specific shape or gradient you will actually meet in Phase 2+.
   activations and gradients that overflow in fp16 are fine in bf16. Precision is
   the price paid for that.
 
+### 00.9 — Mean, variance, and why random sums grow like `sqrt(n)`
+- **Question it answers:** A dot product of two *random* vectors gets bigger as
+  the vectors get longer. By exactly how much — and why is the answer `sqrt(n)`
+  rather than `n`?
+- **Prereqs:** 00.3. No statistics assumed; this lesson supplies it.
+- **Why it exists:** `03.2` (the `sqrt(d_k)` scaling), `03.15` (RMSNorm) and
+  `01.20` (initialization) all list "variance of a sum of independent variables"
+  as a prerequisite, and nothing in the curriculum taught it. This is that lesson.
+  Schedule it immediately before resuming `02_attention/`, so it is fresh.
+- **Experiment:** (a) sample 10000 pairs `x, y ~ N(0,1)`; measure `mean(x*y)`
+  and `var(x*y)` — find ≈0 and ≈1. (b) Now sum `n` such products for
+  `n ∈ {4, 64, 1024}`; measure the variance of the sum and find it ≈ `n`, so the
+  standard deviation is ≈ `sqrt(n)`. Print a table of `n`, measured variance,
+  measured std, `sqrt(n)`. (c) The contrast that makes it click: sum `n` copies
+  of the *same* number instead of `n` independent draws — that grows like `n`.
+  Cancellation between mixed signs is the entire difference.
+- **Shapes to nail:** samples `(N, n)`; rowwise sum → `(N,)`; `var ≈ n`;
+  `std ≈ sqrt(n)`. Dividing the sum by `sqrt(n)` returns the variance to ≈1.
+- **Predict-first prompt:** `Var(X) = 1`, `Var(Y) = 1`, independent. What is
+  `Var(X + Y)`? Then `Var` of a sum of `n` of them? Then the *standard
+  deviation* of that sum? Say all three before running anything.
+- **Runs on:** CPU.
+- **Interview hooks:** Derive `Var(q·k) = d_k` from this. Why does the spread
+  grow like `sqrt(n)` and not `n`? Where else does `sqrt(n)` appear for exactly
+  this reason — initialization scaling, standard error, random walks? What
+  breaks in the argument if the components are *correlated* rather than
+  independent, and is that realistic inside a trained Transformer?
+- **Common misconception:** That adding more terms makes a sum grow in
+  proportion to `n`. For independent mixed-sign terms the *mean* stays put and
+  only the *spread* grows — and it grows like `sqrt(n)`. This is the single
+  fact the whole `sqrt(d_k)` argument rests on.
+
 ---
 
 ## Phase 1 — Tensors, autograd, and a neural network from scratch

@@ -8,6 +8,8 @@ read the markdown cells and "Interview one-liners" first; outputs are saved.
 | 02 Embeddings | [01_embeddings/embeddings.ipynb](01_embeddings/embeddings.ipynb) | ID = row index; `E[b,t,d] = W[T[b,t],d]` |
 | 03 Attention (partial) | [02_attention/02_attention.ipynb](02_attention/02_attention.ipynb) | Q/K/V, `(T,T)` scores, causal mask |
 | 00.2 Devices + FLOPs | [00_setup_math/00_devices.ipynb](00_setup_math/00_devices.ipynb) | Always `synchronize()` when timing; no float64 on MPS |
+| 00.3 Vectors | [00_setup_math/01_vectors.ipynb](00_setup_math/01_vectors.ipynb) | `\|a\| = sqrt(a·a)`; a dot product is big for two reasons (alignment **or** length); cosine divides length out |
+| 00.4 Matmul + shapes | [00_setup_math/02_matmul_shapes.ipynb](00_setup_math/02_matmul_shapes.ipynb) | Inner dims match then vanish, outer survive; leading dims are batches; the output's last dim comes from the **weight** |
 
 Add a row here whenever a lesson is finished. Your own summaries live in each
 folder's `NOTES.md`.
