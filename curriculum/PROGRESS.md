@@ -7,7 +7,7 @@ question was attempted, the shapes can be stated from memory, the interview
 hooks were attempted, and `NOTES.md` exists in the lesson directory written by
 the learner — not by Claude.
 
-**Current position:** Phase 0 — next lesson is **00.3 (vectors: norm, dot product, cosine)**.
+**Current position:** Phase 0 done. Next lesson is **01.3 (broadcasting rules)**.
 **Agreed path (trimmed):** 00.3 → Phase 1 broadcasting/shapes lessons only → resume `02_attention/` (the paused `sqrt(d_k)` lesson) → multi-head attention. Autograd/backprop later, before building a GPT. Skip Phase 0 lessons 00.5-00.8 for now.
 
 ---
@@ -24,6 +24,7 @@ the learner — not by Claude.
 | 2026-09-20 | 0 | 00.2 Devices | `00_setup_math/` | Explain async GPU timing (always `synchronize()`), GPU launch overhead vs small matmul, no float64 on MPS |
 | 2026-09-20 | 0 | FLOP counting | `00_setup_math/` | Count matmul FLOPs: outputs `m*n`, each `k` mults + `k-1` adds, ~`2mkn`; FLOPs/token ~ 2 x params |
 | 2025-09-15 | 2 | Toy tokenizer | `01_embeddings/` | Map text to IDs through a dict vocabulary |
+| 2026-09-20 | 0 | 00.3 Vectors: norm, dot, cosine | `00_setup_math/01_vectors.ipynb` | Derive `\|a\| = sqrt(a.a)` from Pythagoras; state the algebraic vs geometric form of the dot product; explain the two reasons a dot product is big; rearrange to cosine similarity and say why it is bounded in [-1,1]; say that matmul is a grid of dot products |
 
 Also carried in from before this workspace: dot product vs matrix
 multiplication.
@@ -53,7 +54,9 @@ Running in parallel, not after (see `ROADMAP.md` Tracks 2 and 3):
 - **Work:** find the LLM-shaped problem at the current job this month.
 - **Market:** rewrite the resume this month; interview for real at **month 4**.
 
-Open small items: 00.2 `NOTES.md` still blank (the learner writes it); optional 70B and TFLOP/s exercises unanswered.
+Open small items: 00.2 and 00.3 `NOTES.md` sections still blank (the learner writes them);
+optional 70B and TFLOP/s exercises unanswered; 00.3 notebook challenge (`a · d`, `cos(a,d)`)
+not yet attempted.
 
 ---
 
@@ -94,6 +97,7 @@ makes them answerable.
 
 | Date | Minutes | What happened |
 | --- | ---: | --- |
-| 2026-09-20 | ~150 | Finished 00.2 + FLOP counting; agreed trimmed path | 
+| 2026-09-20 | ~150 | Finished 00.2 + FLOP counting; agreed trimmed path |
+| 2026-09-20 | ~60 | Taught 00.3 vectors: norm, dot product, cosine. Notebook saved, NOTES.md prompts added |
 | 2026-09-20 | — | Roadmap review: 6-month scope cut to Phases 0-5 + P1/P2/P3/P5; work + job-search tracks added; quant/roofline pulled forward; phase numbering unified across ROADMAP/POSITIONING/PORTFOLIO |
 | 2026-09-20 | — | Workspace rebuilt for Claude Code: CLAUDE.md, skills, 12-phase curriculum, interview bank, portfolio track |
