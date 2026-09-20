@@ -18,3 +18,23 @@
 - Mask orientation: what `(1,T)` masks vs what `(T,1)` masks, and which produces `nan`:
 - The habit I am going to use to stop this class of bug:
 - What surprised me:
+
+## 01.5 reshape vs view vs transpose
+- Why `view` failed right after `transpose`, in my words:
+- The difference between `view`, `reshape` and `.contiguous().view()`, and which I prefer while learning:
+- The multi-head split as two operations, with the shape after each:
+- Why the WRONG single-view version is dangerous rather than merely incorrect:
+- Why `.contiguous()` is mandatory on the merge back but not on the split out:
+
+## 01.6 matmul semantics
+- What matmul does with a 1-D operand:
+- How batch dimensions broadcast, and when I would use `bmm` instead:
+
+## 01.7 einsum
+- How I know, from the notation alone, which axis is summed:
+- What einsum buys me that `@` does not:
+
+## 01.8 reductions
+- What `dim=` actually names:
+- What `keepdim=True` is protecting, connected back to the 01.4 bug:
+- What surprised me:

@@ -7,7 +7,7 @@ question was attempted, the shapes can be stated from memory, the interview
 hooks were attempted, and `NOTES.md` exists in the lesson directory written by
 the learner — not by Claude.
 
-**Current position:** Phase 0 taught through 00.4. Next lesson is **00.5 (transpose)** — see the prerequisite audit below for why it is no longer skipped.
+**Current position:** notebooks now exist for 00.5 and the whole Phase 1 shape block (01.2-01.8), executed with outputs saved. Next: work through them, then **00.9 (mean/variance/sqrt(n))** before resuming `02_attention/`.
 **Agreed path (revised 2026-09-20 after a prerequisite audit):**
 `00.5` transpose → `01.2` indexing/slicing → `01.3` broadcasting → `01.4` bug drill →
 `01.5` reshape vs view → `01.6` batched matmul → `01.7` einsum → `01.8` reductions →
@@ -39,6 +39,9 @@ Still skipped: `00.6`, `00.7` (calculus — they return with backprop) and `00.8
 | 2025-09-15 | 2 | Toy tokenizer | `01_embeddings/` | Map text to IDs through a dict vocabulary |
 | 2026-09-20 | 0 | 00.3 Vectors: norm, dot, cosine | `00_setup_math/01_vectors.ipynb` | Derive `\|a\| = sqrt(a.a)` from Pythagoras; state the algebraic vs geometric form of the dot product; explain the two reasons a dot product is big; rearrange to cosine similarity and say why it is bounded in [-1,1]; say that matmul is a grid of dot products |
 | 2026-09-20 | 0 | 00.4 Matmul + shape algebra | `00_setup_math/02_matmul_shapes.ipynb` | Say in one second whether `(a,b) @ (c,d)` is legal and what comes out: inner must match, inner vanishes, outer survives. Explain a matmul as a grid of dot products (verified against a double loop). Read a shape error. Distinguish 1-D from row/column vectors. Explain a leading dim as a batch — same weights, different data — and why the output's last dim comes from the weight |
+| 2026-09-20 | 0 | 00.5 Transpose | `00_setup_math/03_transpose.ipynb` | Say that `.T` swaps strides and copies nothing; derive why attention needs `Q @ K^T` (puts `d_k` on the inside so it vanishes); read entry `[i,j]` as one dot product; state that `(T,T)` is `O(T^2)` and independent of `d_k`, and quote 32 GiB at B=8,H=32,T=8192,fp16 |
+| 2026-09-20 | 1 | 01.2-01.4 Indexing, broadcasting, silent bugs | `03_tensor_shapes/00_indexing_broadcasting.ipynb` | Basic slicing = view, advanced = copy; broadcasting aligns from the right; explain why `(3,)` and `(3,1)` both work against `(3,3)` and give different answers — the `keepdim` softmax bug; mask orientation `(1,T)` vs `(T,1)` |
+| 2026-09-20 | 1 | 01.5-01.8 Reshape, matmul, einsum, reductions | `03_tensor_shapes/01_reshape_matmul_einsum.ipynb` | Write the multi-head split as view-then-transpose and say why a single `view` scrambles heads with no error; know when `.contiguous()` is mandatory; read an einsum contract; state that `dim=` names the axis that disappears |
 
 Also carried in from before this workspace: dot product vs matrix
 multiplication.
@@ -69,7 +72,7 @@ Running in parallel, not after (see `ROADMAP.md` Tracks 2 and 3):
 - **Work:** find the LLM-shaped problem at the current job this month.
 - **Market:** rewrite the resume this month; interview for real at **month 4**.
 
-Open small items: 00.2, 00.3 and 00.4 `NOTES.md` sections still blank (the learner writes them);
+Open small items: `NOTES.md` sections for 00.2-00.5 and 01.2-01.8 still blank (the learner writes them);
 optional 70B and TFLOP/s exercises unanswered; 00.3 notebook challenge (`a · d`, `cos(a,d)`)
 not yet attempted; 00.4 notebook challenge (4 shape cases + exact FLOP count) not yet attempted.
 
@@ -115,5 +118,6 @@ makes them answerable.
 | 2026-09-20 | ~150 | Finished 00.2 + FLOP counting; agreed trimmed path |
 | 2026-09-20 | ~60 | Taught 00.3 vectors: norm, dot product, cosine. Notebook saved, NOTES.md prompts added |
 | 2026-09-20 | ~50 | Taught 00.4 matmul + shape algebra. Notebook saved (7 experiments, all executed). Phase 0 taught through 00.4 |
+| 2026-09-20 | — | Built notebooks for 00.5 and the Phase 1 shape block (01.2-01.8), executed in place so outputs are saved; challenge cells left unrun |
 | 2026-09-20 | — | Roadmap review: 6-month scope cut to Phases 0-5 + P1/P2/P3/P5; work + job-search tracks added; quant/roofline pulled forward; phase numbering unified across ROADMAP/POSITIONING/PORTFOLIO |
 | 2026-09-20 | — | Workspace rebuilt for Claude Code: CLAUDE.md, skills, 12-phase curriculum, interview bank, portfolio track |

@@ -22,3 +22,13 @@
 - Where the output's last dimension actually comes from:
 - The exact operation count, and why it is `2k-1` per cell not `k`:
 - What surprised me:
+
+## 00.5 Transpose, and why `W^T` is everywhere
+- What transpose changes and what it does NOT change, in my words:
+- What a stride is, and what the stride tuple became after `.T`:
+- Why attention needs `Q @ K^T` and not `Q @ K`:
+- What entry `[i, j]` of the `(T,T)` score matrix means:
+- Why the score matrix is `O(T^2)` and independent of `d_k`, and why that makes long context hard:
+- The number I can quote for B=8, H=32, T=8192, fp16:
+- Why a free transpose can still cost me later:
+- What surprised me:
