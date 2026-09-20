@@ -3,10 +3,14 @@
 This is the half of the workspace that a hiring manager can actually read. The
 lessons produce depth; this file produces **proof of depth**.
 
-Phases refer to the roadmap in `AGENTS.md` / `curriculum/ROADMAP.md`:
-P1 Foundations · P2 Transformer internals · P3 Inference · P4 Optimization ·
-P5 Training & fine-tuning · P6 Agents & tools · P7 Advanced RAG ·
-P8 Evaluation, reliability, security.
+**Phase numbers refer to `curriculum/ROADMAP.md` (Phases 0-11)**, which is
+canonical. `career/POSITIONING.md` uses the same numbering. Phase 0-1
+foundations · 2 tokenization · 3 attention · 4 build a GPT · 5 inference ·
+6 efficiency · 7 post-training · 8 RAG · 9 agents · 10 evals & security ·
+11 system design.
+
+**In the first six months, build P1, P2, P3 and P5 only.** The rest are
+months 7+. See the six-month plan in `ROADMAP.md`.
 
 **The rule that makes these credible:** none of these projects is novel. Every
 one of them has a thousand GitHub clones. The differentiator is never the code —
@@ -144,7 +148,7 @@ them, write 400 words, move on.
 
 ## P3 — micro-gpt: a decoder-only Transformer, trained, with ablations  **[FLAGSHIP]**
 
-- **Unlocked after:** Phase 2
+- **Unlocked after:** Phase 4
 - **One-line pitch:** A ~15M-parameter decoder-only LM written from scratch —
   RoPE, RMSNorm, SwiGLU, GQA — trained on TinyStories on an M3, with an ablation
   table and a FLOPs/memory accounting that matches the measured throughput.
@@ -205,7 +209,7 @@ them, write 400 words, move on.
 
 ## P4 — kvlab: a KV cache and continuous-batching scheduler from scratch
 
-- **Unlocked after:** Phase 3
+- **Unlocked after:** Phase 5
 - **One-line pitch:** A single-process inference engine for the P3 model with a
   paged KV cache and a continuous-batching scheduler, benchmarked against static
   batching and against vLLM, with a latency/throughput frontier plot.
@@ -262,7 +266,7 @@ them, write 400 words, move on.
 
 ## P5 — jvm-llm-gateway: a Java serving tier with real SLOs  **[FLAGSHIP — your differentiator]**
 
-- **Unlocked after:** Phase 3 (buildable in parallel with P4; it consumes P4 or a
+- **Unlocked after:** Phase 5 (buildable in parallel with P4; it consumes P4 or a
   vLLM backend)
 - **One-line pitch:** A Spring Boot / reactive gateway in front of an LLM backend
   that does token-budgeted rate limiting, SLO-aware admission and queueing,
@@ -343,7 +347,7 @@ them, write 400 words, move on.
 
 ## P6 — quantbench: an honest quality-vs-latency-vs-memory table
 
-- **Unlocked after:** Phase 4
+- **Unlocked after:** Phase 6
 - **One-line pitch:** A reproducible harness that quantizes one model several
   ways and reports the full tradeoff surface — including the configurations that
   were not worth it.
@@ -403,7 +407,7 @@ them, write 400 words, move on.
 
 ## P7 — adapt-lab: LoRA SFT + DPO with an eval that can say "this didn't work"
 
-- **Unlocked after:** Phase 5
+- **Unlocked after:** Phase 7
 - **One-line pitch:** A narrow capability taught to a small instruct model via
   LoRA SFT and then DPO, evaluated against a prompt-only baseline on a held-out
   set — with the rank/target-module ablation and the cost accounting.
@@ -466,7 +470,7 @@ them, write 400 words, move on.
 
 ## P8 — agentlab: an agent harness, an MCP server, and a trajectory eval
 
-- **Unlocked after:** Phase 6
+- **Unlocked after:** Phase 9
 - **One-line pitch:** A tool-using agent with a typed tool layer exposed over
   MCP, plus an evaluation that scores the *trajectory* — tool choice, argument
   correctness, recovery — not just the final answer.
@@ -527,7 +531,7 @@ them, write 400 words, move on.
 
 ## P9 — ragprod: a production-shaped RAG system with separated metrics  **[FLAGSHIP]**
 
-- **Unlocked after:** Phase 7
+- **Unlocked after:** Phase 8
 - **One-line pitch:** A hybrid-retrieval RAG system over a real corpus, with a
   hand-built golden set, retrieval metrics reported *separately* from generation
   metrics, and an ablation showing which component actually earns its latency.
@@ -594,7 +598,7 @@ them, write 400 words, move on.
 
 ## P10 — evalops: an eval and observability layer with a CI regression gate
 
-- **Unlocked after:** Phase 8
+- **Unlocked after:** Phase 10
 - **One-line pitch:** A tracing + evaluation service for LLM applications that
   instruments P8 and P9, calibrates an LLM judge against human labels, and fails
   a CI build on a statistically significant quality regression.
@@ -654,7 +658,7 @@ them, write 400 words, move on.
 
 ## P11 — injectlab: a prompt-injection red-team harness
 
-- **Unlocked after:** Phase 8
+- **Unlocked after:** Phase 10
 - **One-line pitch:** An automated red-team suite that attacks P8's agent and
   P9's RAG system with direct and indirect prompt injections, reports attack
   success rate per category, and measures what each mitigation costs in utility.

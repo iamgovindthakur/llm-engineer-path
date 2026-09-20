@@ -36,10 +36,22 @@ multiplication.
 
 ## Next
 
+Restructured 2026-09-20. Six-month goal: be a credible candidate for senior
+LLM-infra roles (see `ROADMAP.md`). Study scope for that window: **Phases 0-5 +
+the serving-lane efficiency block, shipping P1, P2, P3, P5.** Phases 8-11 are
+months 7-11.
+
 1. **00.3 Vectors** (leads directly into why `sqrt(d_k)` exists).
 2. Phase 1 broadcasting/shapes lessons only.
 3. Resume `02_attention/`, finish `NOTES.md` and interview hooks.
-4. Multi-head attention.
+4. Multi-head attention (Phase 3).
+5. Phase 1 remainder: autograd/backprop/training loop -> **P1**.
+6. Phase 2 tokenization (timeboxed, 2 weeks) -> **P2**.
+7. Phase 4 small GPT -> **P3** [flagship]. Then Phase 5 inference -> **P5** [flagship].
+
+Running in parallel, not after (see `ROADMAP.md` Tracks 2 and 3):
+- **Work:** find the LLM-shaped problem at the current job this month.
+- **Market:** rewrite the resume this month; interview for real at **month 4**.
 
 Open small items: 00.2 `NOTES.md` still blank (the learner writes it); optional 70B and TFLOP/s exercises unanswered.
 
@@ -83,4 +95,5 @@ makes them answerable.
 | Date | Minutes | What happened |
 | --- | ---: | --- |
 | 2026-09-20 | ~150 | Finished 00.2 + FLOP counting; agreed trimmed path | 
+| 2026-09-20 | — | Roadmap review: 6-month scope cut to Phases 0-5 + P1/P2/P3/P5; work + job-search tracks added; quant/roofline pulled forward; phase numbering unified across ROADMAP/POSITIONING/PORTFOLIO |
 | 2026-09-20 | — | Workspace rebuilt for Claude Code: CLAUDE.md, skills, 12-phase curriculum, interview bank, portfolio track |
