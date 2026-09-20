@@ -7,8 +7,8 @@ question was attempted, the shapes can be stated from memory, the interview
 hooks were attempted, and `NOTES.md` exists in the lesson directory written by
 the learner — not by Claude.
 
-**Current position:** Phase 0 done. Next lesson is **01.3 (broadcasting rules)**.
-**Agreed path (trimmed):** 00.3 → Phase 1 broadcasting/shapes lessons only → resume `02_attention/` (the paused `sqrt(d_k)` lesson) → multi-head attention. Autograd/backprop later, before building a GPT. Skip Phase 0 lessons 00.5-00.8 for now.
+**Current position:** Phase 0 — 00.1/00.2/00.3 done, next lesson is **00.4 (matmul as composed dot products, and shape algebra)**. 00.5-00.8 are deliberately skipped for now, so 00.4 closes Phase 0.
+**Agreed path (trimmed):** 00.4 → Phase 1 shape lessons only (01.3 broadcasting, 01.4 bug drill, 01.5 reshape vs view, 01.6 batched matmul, 01.7 einsum, 01.8 reductions) → resume `02_attention/` (the paused `sqrt(d_k)` lesson) → multi-head attention. Autograd/backprop later, before building a GPT. Skip Phase 0 lessons 00.5-00.8 for now.
 
 ---
 
@@ -42,8 +42,8 @@ LLM-infra roles (see `ROADMAP.md`). Study scope for that window: **Phases 0-5 +
 the serving-lane efficiency block, shipping P1, P2, P3, P5.** Phases 8-11 are
 months 7-11.
 
-1. **00.3 Vectors** (leads directly into why `sqrt(d_k)` exists).
-2. Phase 1 broadcasting/shapes lessons only.
+1. **00.4 Matmul as composed dot products** — the direct continuation of 00.3, and it closes Phase 0.
+2. Phase 1 shape lessons only: 01.3, 01.4, 01.5, 01.6, 01.7, 01.8.
 3. Resume `02_attention/`, finish `NOTES.md` and interview hooks.
 4. Multi-head attention (Phase 3).
 5. Phase 1 remainder: autograd/backprop/training loop -> **P1**.
