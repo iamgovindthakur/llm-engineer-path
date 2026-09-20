@@ -41,6 +41,23 @@ than one quarter of *I own the inference path for X*."
 | 3-4 | Ship it. Write it up internally. |
 | 5-6 | Turn it into a resume bullet with production scope. |
 
+**The work problem will almost certainly be RAG-shaped, and that is fine.**
+You do not need Phase 8 to ship v1 — an embedding API, a vector store and a
+reranker are two to four weeks of ordinary engineering, and a framework is an
+acceptable choice here. Phase 8 is what lets you *measure and debug* it, which
+is what turns "I shipped a chatbot" into a bullet with numbers.
+
+So pull four lessons forward out of Phase 8 to run beside the work project
+(~10-12 h). Everything else in Phase 8 stays at months 7-11, where it becomes
+`ragprod`:
+
+| Lesson | Why it is needed now |
+| --- | --- |
+| **08.1** Retrieval vs long context vs fine-tuning | Pick the right approach at work instead of defaulting to RAG |
+| **08.3** The golden set and recall@k | Build the eval set *before* the feature; this habit makes everything else measurable |
+| **08.7** Chunking | `PORTFOLIO.md` calls naive fixed-size chunking "the #1 production failure" — it bites in week two |
+| **08.20** Retrieval metrics vs generation metrics | Lets you say "retrieval was the bottleneck, not the prompt", which is the most senior sentence available in an applied-LLM interview |
+
 ### Track 3 — Market: interview early, on both lanes
 `POSITIONING.md` §7 notes that level, not the AI label, is what employers sort
 on. A backend/distributed-systems move stands on skills you already have and
@@ -100,8 +117,9 @@ needed for interviews before the project is needed for the portfolio.
 
 ### Months 7-11 — the applied spine
 
-Phase 8 RAG → Phase 9 agents → Phase 10 evals and security → Phase 11 system
-design, with **P9 ragprod** as the third flagship. `PORTFOLIO.md` calls P9 "the
+Phase 8 RAG (less the four lessons pulled forward into Track 2) → Phase 9 agents
+→ Phase 10 evals and security → Phase 11 system design, with **P9 ragprod** as
+the third flagship. `PORTFOLIO.md` calls P9 "the
 most commercially legible project in the Indian market… what 70% of applied-LLM
 job descriptions describe," which is exactly why deferring it is a *bet* on the
 serving lane rather than a free choice. Revisit at month 6: if your interviews
