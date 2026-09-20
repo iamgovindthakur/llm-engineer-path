@@ -62,11 +62,11 @@ months 7-11.
 1. **00.5 Transpose** — unblocks both `Q @ K^T` and `01.5`.
 2. Then 01.2 indexing, 01.3 broadcasting, 01.4 bug drill, 01.5 reshape vs view, 01.6 batched matmul, 01.7 einsum, 01.8 reductions.
 3. **00.9 Mean/variance/sqrt(n)** immediately before resuming attention, so it is fresh for `03.2`.
-3. Resume `02_attention/`, finish `NOTES.md` and interview hooks.
-4. Multi-head attention (Phase 3).
-5. Phase 1 remainder: autograd/backprop/training loop -> **P1**.
-6. Phase 2 tokenization (timeboxed, 2 weeks) -> **P2**.
-7. Phase 4 small GPT -> **P3** [flagship]. Then Phase 5 inference -> **P5** [flagship].
+4. Resume `02_attention/`, finish `NOTES.md` and interview hooks.
+5. Multi-head attention (Phase 3).
+6. Phase 1 remainder: autograd/backprop/training loop -> **P1**.
+7. Phase 2 tokenization (timeboxed, 2 weeks) -> **P2**.
+8. Phase 4 small GPT -> **P3** [flagship]. Then Phase 5 inference -> **P5** [flagship].
 
 Running in parallel, not after (see `ROADMAP.md` Tracks 2 and 3):
 - **Work:** find the LLM-shaped problem at the current job this month.
