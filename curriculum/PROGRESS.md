@@ -7,7 +7,7 @@ question was attempted, the shapes can be stated from memory, the interview
 hooks were attempted, and `NOTES.md` exists in the lesson directory written by
 the learner — not by Claude.
 
-**Current position:** Phase 0 — 00.1/00.2/00.3 done, next lesson is **00.4 (matmul as composed dot products, and shape algebra)**. 00.5-00.8 are deliberately skipped for now, so 00.4 closes Phase 0.
+**Current position:** Phase 0 taught through 00.4 (00.5-00.8 deliberately skipped). Next lesson is **01.3 (broadcasting rules)**, the first Phase 1 shape lesson.
 **Agreed path (trimmed):** 00.4 → Phase 1 shape lessons only (01.3 broadcasting, 01.4 bug drill, 01.5 reshape vs view, 01.6 batched matmul, 01.7 einsum, 01.8 reductions) → resume `02_attention/` (the paused `sqrt(d_k)` lesson) → multi-head attention. Autograd/backprop later, before building a GPT. Skip Phase 0 lessons 00.5-00.8 for now.
 
 ---
@@ -25,6 +25,7 @@ the learner — not by Claude.
 | 2026-09-20 | 0 | FLOP counting | `00_setup_math/` | Count matmul FLOPs: outputs `m*n`, each `k` mults + `k-1` adds, ~`2mkn`; FLOPs/token ~ 2 x params |
 | 2025-09-15 | 2 | Toy tokenizer | `01_embeddings/` | Map text to IDs through a dict vocabulary |
 | 2026-09-20 | 0 | 00.3 Vectors: norm, dot, cosine | `00_setup_math/01_vectors.ipynb` | Derive `\|a\| = sqrt(a.a)` from Pythagoras; state the algebraic vs geometric form of the dot product; explain the two reasons a dot product is big; rearrange to cosine similarity and say why it is bounded in [-1,1]; say that matmul is a grid of dot products |
+| 2026-09-20 | 0 | 00.4 Matmul + shape algebra | `00_setup_math/02_matmul_shapes.ipynb` | Say in one second whether `(a,b) @ (c,d)` is legal and what comes out: inner must match, inner vanishes, outer survives. Explain a matmul as a grid of dot products (verified against a double loop). Read a shape error. Distinguish 1-D from row/column vectors. Explain a leading dim as a batch — same weights, different data — and why the output's last dim comes from the weight |
 
 Also carried in from before this workspace: dot product vs matrix
 multiplication.
@@ -42,8 +43,8 @@ LLM-infra roles (see `ROADMAP.md`). Study scope for that window: **Phases 0-5 +
 the serving-lane efficiency block, shipping P1, P2, P3, P5.** Phases 8-11 are
 months 7-11.
 
-1. **00.4 Matmul as composed dot products** — the direct continuation of 00.3, and it closes Phase 0.
-2. Phase 1 shape lessons only: 01.3, 01.4, 01.5, 01.6, 01.7, 01.8.
+1. **01.3 Broadcasting rules** — first Phase 1 shape lesson.
+2. Then 01.4 bug drill, 01.5 reshape vs view, 01.6 batched matmul, 01.7 einsum, 01.8 reductions.
 3. Resume `02_attention/`, finish `NOTES.md` and interview hooks.
 4. Multi-head attention (Phase 3).
 5. Phase 1 remainder: autograd/backprop/training loop -> **P1**.
@@ -54,9 +55,9 @@ Running in parallel, not after (see `ROADMAP.md` Tracks 2 and 3):
 - **Work:** find the LLM-shaped problem at the current job this month.
 - **Market:** rewrite the resume this month; interview for real at **month 4**.
 
-Open small items: 00.2 and 00.3 `NOTES.md` sections still blank (the learner writes them);
+Open small items: 00.2, 00.3 and 00.4 `NOTES.md` sections still blank (the learner writes them);
 optional 70B and TFLOP/s exercises unanswered; 00.3 notebook challenge (`a · d`, `cos(a,d)`)
-not yet attempted.
+not yet attempted; 00.4 notebook challenge (4 shape cases + exact FLOP count) not yet attempted.
 
 ---
 
@@ -99,5 +100,6 @@ makes them answerable.
 | --- | ---: | --- |
 | 2026-09-20 | ~150 | Finished 00.2 + FLOP counting; agreed trimmed path |
 | 2026-09-20 | ~60 | Taught 00.3 vectors: norm, dot product, cosine. Notebook saved, NOTES.md prompts added |
+| 2026-09-20 | ~50 | Taught 00.4 matmul + shape algebra. Notebook saved (7 experiments, all executed). Phase 0 taught through 00.4 |
 | 2026-09-20 | — | Roadmap review: 6-month scope cut to Phases 0-5 + P1/P2/P3/P5; work + job-search tracks added; quant/roofline pulled forward; phase numbering unified across ROADMAP/POSITIONING/PORTFOLIO |
 | 2026-09-20 | — | Workspace rebuilt for Claude Code: CLAUDE.md, skills, 12-phase curriculum, interview bank, portfolio track |
