@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+myenv/
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Notebook output noise — keep outputs for lessons you want to re-read,
+# strip them for anything you are about to commit as a project.
+# (Nothing ignored by default; decide per project.)
+
+# Models, data, checkpoints — never commit these
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.gguf
+checkpoints/
+data/
+datasets/
+runs/
+wandb/
+scratch/
+
+# Secrets
+.env
+*.key
+
+# macOS
+.DS_Store
+
+# Claude Code local overrides (machine-specific, do not commit)
+.claude/settings.local.json
+
+# Local
+.venv
+playgroud.ipynb
+reference/

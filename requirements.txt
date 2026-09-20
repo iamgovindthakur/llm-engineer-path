@@ -1,0 +1,40 @@
+# Installed in .venv (Python 3.12, Apple M3 / MPS).
+# Pinned loosely: these are learning dependencies, not a deployable service.
+
+# Core
+torch>=2.10
+numpy>=2.0
+
+# Model / data ecosystem
+transformers>=5.3
+tokenizers>=0.22
+datasets>=4.6
+accelerate>=1.13
+huggingface_hub>=1.5
+safetensors>=0.7
+evaluate>=0.4
+
+# Tokenization (Phase 2)
+tiktoken>=0.7
+sentencepiece>=0.2
+
+# Numerics, analysis, plotting
+scikit-learn>=1.8
+scipy>=1.17
+pandas>=3.0
+matplotlib>=3.9
+
+# Notebooks
+jupyterlab>=4.0
+ipykernel>=7.0
+
+# Testing from-scratch implementations against PyTorch references
+pytest>=8.0
+
+# --- Added per phase, not installed yet ---
+# Phase 5 (inference):        vllm            # CUDA only
+# Phase 6 (quantization):     bitsandbytes    # CUDA only; llama-cpp-python works on Metal
+# Phase 7 (PEFT/alignment):   peft, trl       # LoRA runs on MPS; QLoRA needs CUDA
+# Phase 8 (retrieval):        sentence-transformers, rank-bm25, faiss-cpu, chromadb
+# Phase 9 (agents):           anthropic, mcp
+# Phase 10 (evals/tracing):   pytest-benchmark, opentelemetry-sdk

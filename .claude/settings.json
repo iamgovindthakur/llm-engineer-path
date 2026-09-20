@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "PYTHONPATH": ".",
+    "PYTORCH_ENABLE_MPS_FALLBACK": "1",
+    "TOKENIZERS_PARALLELISM": "false"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(.venv/bin/python:*)",
+      "Bash(.venv/bin/pip:*)",
+      "Bash(.venv/bin/pytest:*)",
+      "Bash(.venv/bin/jupyter:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git add:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(grep:*)",
+      "Bash(rg:*)",
+      "Bash(find:*)",
+      "Bash(wc:*)",
+      "Bash(mkdir:*)",
+      "Read(./**)",
+      "WebSearch",
+      "WebFetch(domain:pytorch.org)",
+      "WebFetch(domain:huggingface.co)",
+      "WebFetch(domain:arxiv.org)",
+      "WebFetch(domain:docs.vllm.ai)",
+      "WebFetch(domain:github.com)"
+    ],
+    "deny": [
+      "Read(./**/.env)",
+      "Read(./**/*.key)",
+      "Bash(rm -rf:*)"
+    ]
+  }
+}
